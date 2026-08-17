@@ -1,0 +1,11 @@
+# Compiled binary
+/flowctl
+
+# Go test binaries
+*.test
+
+# Coverage output
+coverage.out
+
+# Editor settings
+.vscode/
