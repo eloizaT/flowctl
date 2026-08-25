@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"os"
+
+	"github.com/eloizaT/flowctl/internal/config"
 )
 
 func main() {
@@ -30,9 +32,16 @@ func run(args []string) error {
 		return fmt.Errorf("usage: flowctl run <workflow>")
 	}
 
+	cfg, err := config.Load("flowctl.yaml")
+	if err != nil {
+		return err
+	}
+
 	workflowName := args[0]
 
 	fmt.Printf("Running workflow: %s\n", workflowName)
+
+	_ = cfg
 
 	return nil
 }
