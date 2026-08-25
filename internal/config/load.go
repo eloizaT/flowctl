@@ -8,7 +8,6 @@ import (
 )
 
 func Load(path string) (Config, error) {
-	fmt.Printf("Loading.......\n")
 	data, err := os.ReadFile(path)
 	if err != nil {
 		return Config{}, fmt.Errorf("read config %q: %w", path, err)
