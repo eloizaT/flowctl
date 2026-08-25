@@ -39,9 +39,14 @@ func run(args []string) error {
 
 	workflowName := args[0]
 
+	workflow, ok := cfg.Workflows[workflowName]
+	if !ok {
+		return fmt.Errorf("workflow %q not found", workflowName)
+	}
+
 	fmt.Printf("Running workflow: %s\n", workflowName)
 
-	_ = cfg
+	_ = workflow
 
 	return nil
 }
