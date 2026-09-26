@@ -6,7 +6,7 @@ import (
 	"os/exec"
 )
 
-func Execute(command string) error {
+func Execute(command string)error {
 	cmd := exec.Command("sh", "-c", command)
 
 	cmd.Stdout = os.Stdout
