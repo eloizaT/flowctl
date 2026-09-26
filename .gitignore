@@ -9,3 +9,6 @@ coverage.out
 
 # Editor settings
 .vscode/
+
+# Local flowctl configuration
+/flowctl.yaml

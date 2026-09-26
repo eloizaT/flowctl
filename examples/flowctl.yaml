@@ -1,0 +1,13 @@
+version: 1
+
+workflows:
+  validate:
+    steps:
+      - name: format
+        run: gofmt -w .
+
+      - name: test
+        run: go test ./...
+
+      - name: build
+        run: go build ./cmd/flowctl
