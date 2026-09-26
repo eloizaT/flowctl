@@ -38,6 +38,10 @@ func run(args []string) error {
 		return err
 	}
 
+	if err := config.Validate(cfg); err != nil {
+		return err
+	}
+	
 	workflowName := args[0]
 
 	workflow, ok := cfg.Workflows[workflowName]
