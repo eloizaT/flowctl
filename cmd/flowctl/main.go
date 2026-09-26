@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/eloizaT/flowctl/internal/config"
+	"github.com/eloizaT/flowctl/internal/executor"
 )
 
 func main() {
@@ -46,7 +47,13 @@ func run(args []string) error {
 
 	fmt.Printf("Running workflow: %s\n", workflowName)
 
-	_ = workflow
+	for _, step := range workflow.Steps {
+		fmt.Printf("→ %s\n", step.Name)
+
+		if err := executor.Execute(step.Run); err != nil {
+			return fmt.Errorf("step %q failed: %w", step.Name, err)
+		}
+	}
 
 	return nil
 }
