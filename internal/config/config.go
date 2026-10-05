@@ -10,6 +10,7 @@ type Workflow struct {
 }
 
 type Step struct {
-	Name string `yaml:"name"`
-	Run  string `yaml:"run"`
+	Name      string   `yaml:"name"`
+	Run       string   `yaml:"run"`
+	DependsOn []string `yaml:"depends_on,omitempty"`
 }
